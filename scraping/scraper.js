@@ -3,13 +3,13 @@ var cheerio = require('cheerio');
 var speaker = require(__dirname + '/speaker.js')
 var content = require(__dirname + '/content.js')
 
-exports.folha_sp = function(url) {
+exports.folhaSP = function(url) {
     return new Promise(function(resolve, reject){
         request(url, function(error, response, body){
             if(!error){
                 cheerio_obj = cheerio.load(body, {decodeEntities: false});
-                var autores = speaker.folha_sp(cheerio_obj);
-                var conteudo = content.folha_sp(cheerio_obj);
+                var autores = speaker.folhaSP(cheerio_obj);
+                var conteudo = content.folhaSP(cheerio_obj);
                 var merged = JSON.parse((autores + conteudo).replace(/}{/g,","))
 
                 return resolve(merged);
@@ -18,4 +18,23 @@ exports.folha_sp = function(url) {
             }
     })
     })
-}
+};
+
+exports.folhaSPLinks = function() {
+
+    return new Promise(function(resolve, reject){
+        var __url__ = "http://www.folha.uol.com.br"
+        var defaultSections = ["Poder"]
+
+        request(__url__, function(error, response, body){
+            if (!error){
+                cheerio_obj = cheerio.load(body, {decodeEntities: false});
+                var links = content.folhaSPLinks(cheerio_obj)
+                return resolve(links);
+            }else{
+                return reject(error);
+            }
+        })
+    })
+
+};
