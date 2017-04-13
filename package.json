@@ -1,0 +1,28 @@
+{
+    "name": "Nodens",
+    "version": "0.0.1",
+    "description": "Service using Machine Learning to understand and track news from Politicians in the main media in Brazil.",
+    "main": "main.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wandersoncferreira/Nodens.git"
+    },
+    "private": true,
+    "dependencies": {
+        "request": "latest",
+        "cheerio": "latest"
+    },
+    "author": {
+        "name": "Wanderson Ferreira",
+        "email": "iagwanderson@gmail.com",
+        "url": "http://github.com/wandersoncferreira/Nodens"
+    },
+    "contributors": [
+        {
+            "name": "Arthur Ribeiro",
+            "email": "<put-your-email-here-man>",
+            "url": "<put-your-url-here-man>"
+        }
+    ],
+    "license": "MIT"
+}
