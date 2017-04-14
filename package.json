@@ -12,6 +12,8 @@
         "request": "latest",
         "cheerio": "latest",
         "ini": "latest",
+        "express": "latest",
+        "node-schedule": "latest",
         "mongodb": "~2.0"
     },
     "author": {
