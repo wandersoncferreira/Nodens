@@ -1,4 +1,4 @@
-exports.folha_sp = function(cheerio_object) {
+exports.folhaSP = function(cheerio_object) {
 
     var json = {autor: "", colunista: true, nome_colunista: "",
                 biografia: ""}
