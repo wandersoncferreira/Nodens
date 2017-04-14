@@ -4,9 +4,8 @@ var format = require('util').format
 var assert = require('assert');
 var fs = require('fs');
 
-var config = ini.parse(fs.readFileSync('../nodens.ini', 'utf-8'));
-
-function databaseURL(config){
+exports.url = function(){
+    var config = ini.parse(fs.readFileSync(__ini, 'utf-8'));
     var user = config.database.user
     var pwd = config.database.password
     var hostname = config.database.hostname
@@ -16,14 +15,14 @@ function databaseURL(config){
     return url
 }
 
-function testConnection(url){
-    MongoClient.connect(url, function(err, db){
-        assert.equal(null, err);
-        console.log("Connected correctly to server.");
-        db.close();
-    });
-}
+// function testConnection(url){
+//     MongoClient.connect(url, function(err, db){
+//         assert.equal(null, err);
+//         console.log("Connected correctly to server.");
+//         db.close();
+//     });
+// }
 
-// testing database connection
-console.log("Testando a conexão com o banco mongo na Amazon")
-testConnection(databaseURL(config))
+// // testing database connection
+// console.log("Testando a conexão com o banco mongo na Amazon")
+// testConnection(databaseURL(config))
