@@ -38,3 +38,4 @@ jspm_packages
 
 # Avoid JSON files
 .json
+output_final.json
