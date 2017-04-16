@@ -13,6 +13,8 @@
         "cheerio": "latest",
         "ini": "latest",
         "express": "latest",
+        "iconv-lite": "latest",
+        "watson-developer-cloud": "latest",
         "node-schedule": "latest",
         "mongodb": "~2.0"
     },
