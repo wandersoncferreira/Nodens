@@ -11,7 +11,7 @@ var translationCredentials = function(){
     json.url = config.watson.translation.url
     return json
 }
-
+// corrigir o version date, tem que usar a variavel que foi declarada la emcima.
 var analyzeCredentials = function(){
     var config = ini.parse(fs.readFileSync(__ini, 'utf-8'));
     var json = {username: "", password: "", version_date: ""};
@@ -40,7 +40,7 @@ var translate = function(text){
 
 var analyze = function(text, features){
     return new Promise(function(resolve, reject){
-        var nlu = new NaturalLanguageUnderstandingV1(analizeCredentials())
+        var nlu = new NaturalLanguageUnderstandingV1(analyzeCredentials())
         nlu.analyze({
             'text': text,
             'features': features
@@ -52,4 +52,9 @@ var analyze = function(text, features){
             }
         })
     })
+}
+
+module.exports = {
+    translate: translate,
+    analyze: analyze
 }
